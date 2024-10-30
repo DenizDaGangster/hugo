@@ -34,6 +34,24 @@ let Held = sprites.create(img`
     `, SpriteKind.Player)
 controller.moveSprite(Held, 100, 100)
 Held.setBounceOnWall(true)
+let myEnemy = sprites.create(img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . 1 . 1 . 1 . . . . 
+    . . . . . . 2 2 2 2 2 2 . . . . 
+    . . . . . d 2 f 2 2 f 2 d . . . 
+    . . . . . d 2 2 2 2 2 2 d . . . 
+    . . . . . . 2 2 f f 2 2 . . . . 
+    . . . . . . 2 f 2 2 f 2 . . . . 
+    . . . . . . 2 2 2 2 2 2 . . . . 
+    . . . . . . . 2 . . 2 . . . . . 
+    . . . . . . f f . f f . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    `, SpriteKind.Enemy)
 game.onUpdate(function () {
 	
 })
