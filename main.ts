@@ -32,6 +32,7 @@ let mySprite = sprites.create(img`
     ................................
     ................................
     `, SpriteKind.Player)
+controller.moveSprite(mySprite, 100, 100)
 game.onUpdate(function () {
 	
 })
