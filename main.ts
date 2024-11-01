@@ -1,3 +1,31 @@
+namespace SpriteKind {
+    export const Geschoss = SpriteKind.create()
+}
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    Laser = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+        2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.Geschoss)
+})
+sprites.onOverlap(SpriteKind.Geschoss, SpriteKind.Enemy, function (sprite, otherSprite) {
+    Münze = sprites.create(assets.image`Münze`, SpriteKind.Projectile)
+})
+let Münze: Sprite = null
+let Laser: Sprite = null
 let mySprite2 = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
@@ -50,11 +78,23 @@ let Held = sprites.create(img`
     ................................
     ................................
     `, SpriteKind.Player)
+Held.setVelocity(0, 100)
 scene.cameraFollowSprite(Held)
+info.setLife(3)
 controller.moveSprite(Held, 100, 100)
 Held.setBounceOnWall(true)
 let myEnemy = 0
 tiles.setCurrentTilemap(tilemap`Level8`)
 game.onUpdate(function () {
-	
+    if (Held.vx < 0) {
+    	
+    }
+    if (true) {
+    	
+    }
+})
+forever(function () {
+    if (Held.overlapsWith(Münze)) {
+        info.changeScoreBy(1)
+    }
 })
