@@ -21,30 +21,17 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         . . . . . . . . . . . . . . . . 
         `, SpriteKind.Geschoss)
 })
+controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
+    Held.vy = -100
+    pause(1000)
+})
 sprites.onOverlap(SpriteKind.Geschoss, SpriteKind.Enemy, function (sprite, otherSprite) {
     Münze = sprites.create(assets.image`Münze`, SpriteKind.Projectile)
 })
 let Münze: Sprite = null
 let Laser: Sprite = null
-let mySprite2 = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    `, SpriteKind.Player)
-let Held = sprites.create(img`
+let Held: Sprite = null
+Held = sprites.create(img`
     ................................
     ............dddd................
     ...........dddddd...............
@@ -78,18 +65,17 @@ let Held = sprites.create(img`
     ................................
     ................................
     `, SpriteKind.Player)
-Held.setVelocity(0, 100)
 scene.cameraFollowSprite(Held)
+controller.moveSprite(Held, 100, 0)
+Held.y = 100
 info.setLife(3)
-controller.moveSprite(Held, 100, 100)
 Held.setBounceOnWall(true)
-let myEnemy = 0
 tiles.setCurrentTilemap(tilemap`Level8`)
 game.onUpdate(function () {
     if (Held.vx < 0) {
     	
     }
-    if (true) {
+    if (Held.vx > 0) {
     	
     }
 })
