@@ -50,10 +50,11 @@ let Held = sprites.create(img`
     ................................
     ................................
     `, SpriteKind.Player)
+scene.cameraFollowSprite(Held)
 controller.moveSprite(Held, 100, 100)
 Held.setBounceOnWall(true)
 let myEnemy = 0
-tiles.setCurrentTilemap(tilemap`Level9`)
+tiles.setCurrentTilemap(tilemap`Level8`)
 game.onUpdate(function () {
 	
 })
