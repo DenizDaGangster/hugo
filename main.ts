@@ -50,7 +50,6 @@ let Held = sprites.create(img`
     ..................................................
     ..................................................
     `, SpriteKind.Player)
-scene.cameraFollowSprite(Held)
 controller.moveSprite(Held, 100, 100)
 Held.setBounceOnWall(true)
 scene.setBackgroundColor(1)
