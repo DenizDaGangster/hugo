@@ -35,10 +35,14 @@ sprites.onOverlap(SpriteKind.Geschoss, SpriteKind.Enemy, function (sprite, other
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Münze, function (sprite, otherSprite) {
     info.changeScoreBy(1)
 })
+scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.hazardLava1, function (sprite, location) {
+    tiles.placeOnRandomTile(Held, assets.tile`myTile`)
+    info.changeLifeBy(-1)
+})
 let Münze: Sprite = null
 let Laser: Sprite = null
 let Held: Sprite = null
-tiles.setCurrentTilemap(tilemap`Level17`)
+tiles.setCurrentTilemap(tilemap`Level27`)
 Held = sprites.create(img`
     ................................
     ............dddd................
@@ -73,9 +77,11 @@ Held = sprites.create(img`
     ................................
     ................................
     `, SpriteKind.Player)
+tiles.placeOnRandomTile(Held, assets.tile`myTile`)
 scene.cameraFollowSprite(Held)
 controller.moveSprite(Held, 100, 0)
-Held.y = 100
+Held.setBounceOnWall(true)
+Held.vy = 100
 info.setLife(3)
 let Schlüssel = sprites.create(img`
     ..........................
