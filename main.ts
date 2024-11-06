@@ -23,11 +23,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         `, SpriteKind.Geschoss)
 })
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
-    Held.vy = -100
-    pause(500)
-    Held.vy = 100
-    pause(500)
-    Held.vy = 0
+	
 })
 sprites.onOverlap(SpriteKind.Geschoss, SpriteKind.Enemy, function (sprite, otherSprite) {
     Münze = sprites.create(assets.image`Münze`, SpriteKind.Münze)
@@ -79,9 +75,9 @@ Held = sprites.create(img`
     `, SpriteKind.Player)
 tiles.placeOnRandomTile(Held, assets.tile`myTile`)
 scene.cameraFollowSprite(Held)
+Held.ay = 100
 controller.moveSprite(Held, 100, 0)
 Held.setBounceOnWall(true)
-Held.vy = 100
 info.setLife(3)
 let Schlüssel = sprites.create(img`
     ..........................
